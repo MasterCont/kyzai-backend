@@ -1,0 +1,20 @@
+{
+  "name": "kyzai-backend",
+  "version": "1.0.0",
+  "description": "The server part for the online messenger \"Kyzai\". It was developed for the period of study at the IT-CUBE Center for Digital Additional Education. ",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MasterCont/kyzai-backend.git"
+  },
+  "author": "MasterCont",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MasterCont/kyzai-backend/issues"
+  },
+  "homepage": "https://github.com/MasterCont/kyzai-backend#readme"
+}

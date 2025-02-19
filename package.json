@@ -5,7 +5,8 @@
   "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": ""
+    "start": "npx ts-node app.ts",
+    "dev": "nodemon --exec ts-node app.ts"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/MasterCont/kyzai-backend/issues"
   },
-  "homepage": "https://github.com/MasterCont/kyzai-backend#readme"
+  "homepage": "https://github.com/MasterCont/kyzai-backend#readme",
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
 }

@@ -5,6 +5,8 @@ import {sysPrint} from "./modules/common.module";
 
 // Инициализация переменных
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // Для form-data
 dotenv.config();
 
 // Подключение компонентов

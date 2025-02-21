@@ -1,63 +1,122 @@
 # Kyzai-backend
-The server part for the online messenger "Kyzai". It was developed for the period of study at the IT-CUBE Center for Digital Additional Education.
+Серверная часть онлайн-мессенджера "Kyzai". Разработана в рамках обучения в Центре цифрового образования "IT-CUBE".
+## Установка
 
-# How to start app
-Write the following commands in your terminal:
-```shell
-    npm run build
-    npm run start
+## 🚀 Запуск приложения
+
+1. Установите зависимости:
+```bash
+npm install
 ```
 
-## How to use
-Get the chat history
-```http request 
-   GET http://<server_ip>:23094/history
+2. Соберите и запустите проект:
+
+```bash
+npm run build
+npm run start
 ```
-Create a chat message
-```http request
-    GET http://<server_ip>:23094/message
+
+Сервер будет доступен по адресу: http://<адрес_сервера>:23094
+
+
+
+## 📡 API Endpoints
+
+#### Получить историю сообщений
+
+```http
+  GET /history
 ```
+
+Пример ответа:
+
 ```json
-    "body": { // x-www-form-urlencoded
-        username: "User",
-        content: "Hello, world!"
-  }
-```
-
-Get a joke teapot
-```http request
-    GET http://<server_ip>:23094/teapot
-```
-
-## The structure of the basic JSON response
-```json
+{
+  "code": 200,
+  "status": "OK",
+  "reason": "Messages list",
+  "data": [
     {
-      code: 200,
-      status: "OK",
-      reason: "Put an asterisk on the github project ^.^",
-      data: [
-        [
-          {
-            "id": 1,
-            "username": "steve",
-            "content": "Hello!",
-            "timestamp": "2025-02-21 19:57:24"
-          },
-          {
-            "id": 2,
-            "username": "maria",
-            "content": "Hello, Steve!",
-            "timestamp": "2025-02-21 19:58:00"
-          },
-          {
-            "id": 3,
-            "username": "mastercont",
-            "content": "Hello, chat!",
-            "timestamp": "2025-02-21 20:04:04"
-          }
-      ]
+      "id": 1,
+      "username": "steve",
+      "content": "Hello!",
+      "timestamp": "2025-02-21 19:57:24"
+    },
+    {
+      "id": 2,
+      "username": "maria", 
+      "content": "Hello, Steve!",
+      "timestamp": "2025-02-21 19:58:00"
     }
+  ]
+}
 ```
 
-## Authors
+#### Отправить сообщение
+
+```http
+  GET /message
+  Content-Type: application/json
+
+{
+  "username": "User",
+  "content": "Hello, world!"
+}
+```
+
+Пример ответа:
+
+```json
+{
+  "code": 201,
+  "status": "Created",
+  "reason": "Message sent",
+  "data": {
+    "id": 3,
+    "username": "User",
+    "content": "Hello, world!",
+    "timestamp": "2025-02-21 20:04:04"
+  }
+}
+```
+
+#### Шуточный эндпоинт
+
+```http
+  GET /teapot
+```
+
+Пример ответа:
+
+```json
+{
+  "code": 418,
+  "status": "I'm a teapot",
+  "reason": "The server refuses to brew coffee because it is a teapot"
+}
+```
+
+
+
+## 🛠 Технологии
+TypeScript
+Express.js
+SQLite
+
+
+## 📂 Структура проекта
+
+```src/
+├── app.ts          # Основной файл приложения
+└── routes/
+    └── common.routes.ts # Маршруты API
+└── modules/
+    └── common.modules.ts # Основные методы
+    └── time.modules.ts # Методы работы с временем
+    └── codes.modules.ts # Методы с генерацией rest-api-json структуры
+    └── sqlite.modules.ts # Работа с базой данных
+```
+## 👨💻 Автор
+
 - [@MasterCont](https://www.github.com/MasterCont)
+

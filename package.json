@@ -1,6 +1,6 @@
 {
   "name": "kyzai-backend",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "The server part for the online messenger \"Kyzai\". It was developed for the period of study at the IT-CUBE Center for Digital Additional Education. ",
   "main": "src/app.ts",
   "scripts": {
@@ -20,23 +20,16 @@
   },
   "homepage": "https://github.com/MasterCont/kyzai-backend#readme",
   "devDependencies": {
-    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
-    "@types/jsonwebtoken": "^9.0.8",
     "@types/node": "^22.13.4",
-    "@types/pg": "^8.11.11",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "bcrypt": "^5.1.1",
     "colors": "^1.4.0",
-    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2",
-    "pg": "^8.13.3",
     "socket.io": "^4.8.1"
   }
 }

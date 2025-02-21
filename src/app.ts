@@ -12,5 +12,5 @@ app.use(router);
 
 // Запуск приложения
 app.listen(process.env.PORT, () => {
-    sysPrint(`The application runs on port ${process.env.PORT}`)
+    sysPrint(`The application runs on port ${process.env.PORT}`);
 });

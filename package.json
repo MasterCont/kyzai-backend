@@ -1,6 +1,6 @@
 {
   "name": "kyzai-backend",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "The server part for the online messenger \"Kyzai\". It was developed for the period of study at the IT-CUBE Center for Digital Additional Education. ",
   "main": "src/app.ts",
   "scripts": {
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",

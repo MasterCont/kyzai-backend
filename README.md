@@ -6,6 +6,8 @@
 
 1. Установите зависимости:
 ```bash
+git clone https://github.com/MasterCont/kyzai-backend.git
+cd kyzai-backend
 npm install
 ```
 
@@ -18,69 +20,69 @@ npm run start
 
 Сервер будет доступен по адресу: http://<адрес_сервера>:23094
 
+## 📡 WebSocket API
 
+ ### Подключение к сокету:
+```js
+const ws = new WebSocket('ws://localhost:23094'); // ws://<ваш_адрес_сервера>:23094
 
-## 📡 API Endpoints
-
-#### Получить историю сообщений
-
-```http
-  GET /history
-```
-
-Пример ответа:
-
-```json
-{
-  "code": 200,
-  "status": "OK",
-  "reason": "Messages list",
-  "data": [
-    {
-      "id": 1,
-      "username": "steve",
-      "content": "Hello!",
-      "timestamp": "2025-02-21 19:57:24"
-    },
-    {
-      "id": 2,
-      "username": "maria", 
-      "content": "Hello, Steve!",
-      "timestamp": "2025-02-21 19:58:00"
-    }
-  ]
+ws.onmessage = (e) => { // Если используйте веб-браузер
+    console.log(e)
 }
 ```
 
-#### Отправить сообщение
+ ### Основные события:
 
-```http
-  GET /message
-  Content-Type: application/json
+    message - Отправка сообщения
+    history - Получение истории чата
 
-{
-  "username": "User",
-  "content": "Hello, world!"
-}
+ ### Примеры запросов:
+
+ #### Отправка сообщения:
+```js
+ws.send(JSON.stringify({
+  type: "message",
+  data: {
+    username: "MasterCont",
+    content: "Привет из README!"
+  }
+}));
 ```
 
-Пример ответа:
+ #### Получение истории сообщений из базы данных:
+```js
+ws.send(JSON.stringify({ 
+    type: "history" 
+}));
+```
 
+ #### Форматы ответов:
 ```json
 {
-  "code": 201,
-  "status": "Created",
-  "reason": "Message sent",
+  "type": "message",
   "data": {
-    "id": 3,
-    "username": "User",
-    "content": "Hello, world!",
-    "timestamp": "2025-02-21 20:04:04"
+    "id": 1,
+    "username": "MasterCont",
+    "content": "Hello World",
+    "timestamp": "2025-02-25 22:02:10"
   }
 }
 ```
 
-#### Шуточный эндпоинт
+```json
+{ 
+  "type": "history",
+  "data": [
+    {/* ... */},
+    {/* ... */}
+  ]
+}
+```
+
+
+## 📡 API Endpoints
+
+### Шуточный эндпоинт
 
 ```http
   GET /teapot
@@ -99,9 +101,10 @@ npm run start
 
 
 ## 🛠 Технологии
-TypeScript
-Express.js
-SQLite
+    TypeScript - Основной язык разработки
+    WebSocket - Реальный времени чат
+    SQLite - Хранение сообщений
+    Express - HTTP-сервер (для будущего расширения)
 
 
 ## 📂 Структура проекта
@@ -115,7 +118,17 @@ SQLite
     └── time.modules.ts # Методы работы с временем
     └── codes.modules.ts # Методы с генерацией rest-api-json структуры
     └── sqlite.modules.ts # Работа с базой данных
+    └── websocket.modules.ts # Веб-сокет
+    └── interfaces.modules.ts # Работа с интерфейсами
 ```
+
+## 🔧 Настройка
+### Добавьте в .env:
+```env
+ PORT=23094
+ DB_PATH=./chat.db
+```
+
 ## 👨💻 Автор
 
 - [@MasterCont](https://www.github.com/MasterCont)

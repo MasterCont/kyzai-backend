@@ -1,1 +1,1 @@
-{"root":["./src/app.ts","./src/modules/codes.module.ts","./src/modules/common.module.ts","./src/modules/sqlite.module.ts","./src/modules/time.module.ts","./src/routes/common.routes.ts"],"version":"5.7.3"}
+{"root":["./src/app.ts","./src/modules/codes.module.ts","./src/modules/common.module.ts","./src/modules/interfaces.module.ts","./src/modules/sqlite.module.ts","./src/modules/time.module.ts","./src/modules/websocket.module.ts","./src/routes/common.routes.ts"],"version":"5.7.3"}
